@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/AthenaCode/make-america-swole-again/issues"
   },
-  "homepage": "https://github.com/AthenaCode/make-america-swole-again#readme"
+  "homepage": "https://github.com/AthenaCode/make-america-swole-again#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongodb": "^2.2.21",
+    "mongoose": "^4.7.7"
+  }
 }
