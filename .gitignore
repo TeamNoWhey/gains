@@ -1,0 +1,12 @@
+# Folders
+
+node_modules
+db/
+client/lib
+compiled/
+
+# Floobits
+.floo
+.floobit
+.floo
+.flooignore
