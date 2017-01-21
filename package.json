@@ -1,0 +1,19 @@
+{
+  "name": "make-america-swole-again",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeamNoWhey/make-america-swole-again.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AthenaCode/make-america-swole-again/issues"
+  },
+  "homepage": "https://github.com/AthenaCode/make-america-swole-again#readme"
+}
