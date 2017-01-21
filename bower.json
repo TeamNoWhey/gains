@@ -1,0 +1,23 @@
+{
+  "name": "make-america-swole-again",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Tin <tinytheyfon8@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/tinytheyfon8/make-america-swole-again",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "^1.6.1",
+    "angular-route": "^1.6.1"
+  }
+}
