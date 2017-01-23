@@ -1,13 +1,15 @@
-// server.js
 var express = require('express')
-
 var app = express()
 
-//Gets us to landing page
+//Goes to landing page
 app.get('/', function (req, res) {
-  res.send('Hello World!')
+  res.send('Hello Landing Page!')
 })
 
+//Goes to FB login page
+app.get('/login', function(req, res){
+
+})
 
 //error handler
 app.use(function(err, res, req, next){
@@ -17,7 +19,6 @@ app.use(function(err, res, req, next){
         error: err 
     });
 })
-
 
 var port = process.env.PORT || 8080;
 console.log('port:', port)
