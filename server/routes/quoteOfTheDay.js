@@ -1,0 +1,1 @@
+quoteOfTheDay.js
