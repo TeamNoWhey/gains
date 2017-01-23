@@ -1,7 +1,7 @@
-var app = express();
 var express = require('express');
 var path = require('path');
 var passport = require('passport');
+var app = express();
 
 //Add back in once db file location is confirmed
 //var db = require('wherever db is?')
@@ -9,8 +9,7 @@ var passport = require('passport');
 //Goes to landing page
 app.get('/', function (req, res) {
   res.send('Hello Landing Page!')
-})
-
+});
 
 
 //error handler
