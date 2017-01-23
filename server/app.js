@@ -1,15 +1,17 @@
-var express = require('express')
-var app = express()
+var app = express();
+var express = require('express');
+var path = require('path');
+var passport = require('passport');
+
+//Add back in once db file location is confirmed
+//var db = require('wherever db is?')
 
 //Goes to landing page
 app.get('/', function (req, res) {
   res.send('Hello Landing Page!')
 })
 
-//Goes to FB login page
-app.get('/login', function(req, res){
 
-})
 
 //error handler
 app.use(function(err, res, req, next){
