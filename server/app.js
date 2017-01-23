@@ -6,11 +6,21 @@ var app = express();
 //Add back in once db file location is confirmed
 //var db = require('wherever db is?')
 
+var landingPage = require('./routes/index')
+var searchBar = require('./routes/searchBar');
+var totalWeight = require('.routes/totalWeight');
+var log = require ('./routes/log');
+var quoteOfTheDay = require('./routes/quoteOfTheDay');
+var feed = require ('./routes/feed');
+var list = require ('./routes/list');
+var chest = require ('./routes/chest');
+var legs = require ('./routes/legs');
+var abs = require ('./routes/abs');
+
 //Goes to landing page
 app.get('/', function (req, res) {
   res.send('Hello Landing Page!')
 });
-
 
 //error handler
 app.use(function(err, res, req, next){
