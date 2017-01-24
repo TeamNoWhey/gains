@@ -15,7 +15,7 @@
 
 <body>
 
-<!-- Navigation Bar -->
+ <!-- Navigation Bar -->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -65,20 +65,24 @@
 
 
 <!-- Body Content -->
+   <qotd-saying> </qotd-saying>
 
-  <h1> Hello World </h1>
 
+<br>
 
-  <goals-info info='app'> </goals-info>
+   <goals-info> </goals-info>
+
 
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/angular-route/angular-route.min.js"></script>
   <script src="lib/jquery/dist/jquery.min.js"></script>
   <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
-
-
+  <script src="app.js"></script>
+  <script src='controller/MainController.js'></script>
+  <script src="directives/nav-bar.js"></script>
   <script src="directives/goals.js"></script>
+  <script src="directives/qotd.js"></script>
 
 
 

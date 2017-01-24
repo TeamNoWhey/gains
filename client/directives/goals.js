@@ -1,11 +1,11 @@
-var app = angular.module ('FitnessApp', []);
+var app = angular.module ('FitnessApp');
 
 app.directive('goalsInfo', function() {
   return {
     restrict: 'E',
     scope: {
-      info: '='
+      goal: '='
     },
-    templateUrl: 'views/goals.html'
+    templateUrl: 'views/goals.html',
   };
 });

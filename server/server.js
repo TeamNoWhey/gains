@@ -1,10 +1,15 @@
 // server.js
 
-var express = require('express')
-var app = express()
+var express = require('express');
+var path = require('path');
+var app = express();
+
+//Serving Static Files so that index.html can be rendered
+app.use(express.static(path.join(__dirname, '../client')));
+
 
 app.get('/', function (req, res) {
-  res.send('Hello World!')
+  // res.sendFile('index.html', {root: __dirname + '/../client/'});
 })
 
 app.listen(3000, function () {
