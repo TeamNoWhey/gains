@@ -1,26 +1,25 @@
 var express = require('express');
 var path = require('path');
 var passport = require('passport');
-var app = express();
+//var bodyParser = require('body-parser');
+var morgan = require('morgan');
 
 //Add back in once db file location is confirmed
-//var db = require('wherever db is?')
-
-var landingPage = require('./routes/index')
-var searchBar = require('./routes/searchBar');
-var totalWeight = require('.routes/totalWeight');
-var log = require ('./routes/log');
-var quoteOfTheDay = require('./routes/quoteOfTheDay');
+//var db = require('wherever db is')
+var landingPage = require('./routes/landingPage')
+var workoutLog = require ('./routes/workoutLog');
 var feed = require ('./routes/feed');
-var list = require ('./routes/list');
-var chest = require ('./routes/chest');
-var legs = require ('./routes/legs');
-var abs = require ('./routes/abs');
+var login = require('./routes/login');
+var app = express();
 
-//Goes to landing page
-app.get('/', function (req, res) {
-  res.send('Hello Landing Page!')
-});
+app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', landingPage);
+app.use('/login', login);
+app.use('/workoutLog', workoutLog);
+app.use('/feed', feed);
+
 
 //error handler
 app.use(function(err, res, req, next){
@@ -37,3 +36,5 @@ console.log('port:', port)
 app.listen(port, function () {
   console.log('MASA is listening on port:', port)
 })
+
+module.exports = app;
