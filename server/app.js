@@ -7,17 +7,17 @@ var morgan = require('morgan');
 //Add back in once db file location is confirmed
 //var db = require('wherever db is')
 var landingPage = require('./routes/landingPage')
-var workoutLog = require ('./routes/workoutLog');
+var workout = require ('./routes/workout');
 var feed = require ('./routes/feed');
 var login = require('./routes/login');
 var app = express();
 
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/public'));
 
 app.use('/', landingPage);
 app.use('/login', login);
-app.use('/workoutLog', workoutLog);
+app.use('/workout', workout);
 app.use('/feed', feed);
 
 
