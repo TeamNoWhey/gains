@@ -1,8 +1,12 @@
+// ToDo
+// Change line 10 to match angular app
+// Get Dependencies from codepen
+
 (function () {
   'use strict';
 
 // **** Import list of workout types ****
-var workoutList = require('./listofworkouttypes');
+var workoutList = require('./listofworkouttypes.js');
 
   angular
       .module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
@@ -15,15 +19,15 @@ var workoutList = require('./listofworkouttypes');
     self.isDisabled    = false;
 
     // list of `state` value/display objects
-    self.states        = loadAll();
+    self.workouts        = loadAll();
     self.querySearch   = querySearch;
     self.selectedItemChange = selectedItemChange;
     self.searchTextChange   = searchTextChange;
 
     self.newState = newState;
 
-    function newState(state) {
-      alert("Sorry! You'll need to create a Constitution for " + state + " first!");
+    function newState(workout) {
+      alert("This is a test message " + workout + " done testing");
     }
 
     // ******************************
@@ -31,11 +35,11 @@ var workoutList = require('./listofworkouttypes');
     // ******************************
 
     /**
-     * Search for states... use $timeout to simulate
+     * Search for workouts... use $timeout to simulate
      * remote dataservice call.
      */
     function querySearch (query) {
-      var results = query ? self.states.filter( createFilterFor(query) ) : self.states,
+      var results = query ? self.workouts.filter( createFilterFor(query) ) : self.workouts,
           deferred;
       if (self.simulateQuery) {
         deferred = $q.defer();
@@ -55,15 +59,15 @@ var workoutList = require('./listofworkouttypes');
     }
 
     /**
-     * Build `states` list of key/value pairs
+     * Build `workouts` list of key/value pairs
      */
     function loadAll() {
-      var allStates = workoutList;
+      var workouts = workoutList;
 
-      return allStates.split(/, +/g).map( function (state) {
+      return workouts.split(/, +/g).map( function (workout) {
         return {
-          value: state.toLowerCase(),
-          display: state
+          value: workout.toLowerCase(),
+          display: workout
         };
       });
     }
@@ -74,8 +78,8 @@ var workoutList = require('./listofworkouttypes');
     function createFilterFor(query) {
       var lowercaseQuery = angular.lowercase(query);
 
-      return function filterFn(state) {
-        return (state.value.indexOf(lowercaseQuery) === 0);
+      return function filterFn(workout) {
+        return (workout.value.indexOf(lowercaseQuery) === 0);
       };
 
     }
