@@ -18,6 +18,9 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "angular": "^1.6.1",
-    "angular-route": "^1.6.1"
+    "angular-route": "^1.6.1",
+    "angular-animate": "^1.6.1",
+    "angular-aria": "^1.6.1",
+    "angular-material": "^1.1.1"
   }
 }
