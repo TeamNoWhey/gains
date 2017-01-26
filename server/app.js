@@ -13,7 +13,7 @@ var login = require('./routes/login');
 var app = express();
 
 app.use(morgan('dev'));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '../client'));
 
 app.use('/', landingPage);
 app.use('/login', login);
@@ -26,7 +26,7 @@ app.use(function(err, res, req, next){
 	res.status(err.status || 500);
     res.render('error', {
         message: err.message,
-        error: err 
+        error: err
     });
 })
 
