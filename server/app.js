@@ -8,18 +8,19 @@ var db = require('./db.js');
 //Add back in once db file location is confirmed
 //var db = require('wherever db is')
 var landingPage = require('./routes/landingPage')
-var workout = require ('./routes/workout');
-var feed = require ('./routes/feed');
-var login = require('./routes/login');
+// var workout = require ('./routes/workout');
+// var feed = require ('./routes/feed');
+// var login = require('./routes/login');
+var path = require('path');
 var app = express();
 
 app.use(morgan('dev'));
-app.use(express.static(__dirname + '../client'));
+app.use(express.static(path.join(__dirname, '../client')));
 
 app.use('/', landingPage);
-app.use('/login', login);
-app.use('/workout', workout);
-app.use('/feed', feed);
+// app.use('/login', login);
+// app.use('/workout', workout);
+// app.use('/feed', feed);
 
 
 //error handler
