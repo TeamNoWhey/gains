@@ -1,3 +1,5 @@
+var app = angular.module ('FitnessApp', []);
+
 
 app.directive('qotdSaying', function() {
   return {
