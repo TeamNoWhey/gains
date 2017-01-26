@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable('exercises', function (table) {
       table.increments(); // `id` int unsigned not null auto_increment primary key
       table.string('name', 255);
-      table.string('muscle-group', 255);
+      table.string('muscle_group', 255);
       table.timestamps();
     })
   ])

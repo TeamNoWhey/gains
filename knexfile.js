@@ -6,7 +6,10 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'masa-db'
-    }
+    },
+    seeds: {
+      directory: './seeds/'
+    } 
   }
   // development: {
   //   client: 'postgresql',
