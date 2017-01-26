@@ -1,1 +1,18 @@
-body {padding-top: 65px}
+body {padding-top: 65px;
+	padding-left: 10px;}
+
+.goals {
+  position: absolute;
+  left: 30%;
+  border-style: dotted;
+  width: 40%;
+}
+
+.goalsHeader {
+  margin-left: 25px;
+
+}
+
+.quote {
+  text-align: center;
+}
