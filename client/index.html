@@ -10,6 +10,7 @@
   <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="styles/style.css" rel="stylesheet" type="text/css">
 
+  <base href='/'>
 
 </head>
 
@@ -44,10 +45,10 @@
             <li><a href="#">View Personal Stats</a></li>
           </ul>
         </li>
-      <a class="navbar-brand" href="#"> Brand Name (M.A.S.A.) </a>
+      <a class="navbar-brand" href="/"> Brand Name (M.A.S.A.) </a>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Sign In</a></li> <!-- ng-if to hide if signed in = true -->
+        <li><a href="/signin">Sign In</a></li> <!-- ng-if to hide if signed in = true -->
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Name & Photo <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -65,24 +66,28 @@
 
 
 <!-- Body Content -->
-   <qotd-saying> </qotd-saying>
 
+  <!-- Main content and injected views -->
+  <div id='main'>
 
-<br>
+    <div ng-view> </div>
 
-   <goals-info> </goals-info>
+   <!-- <qotd-saying> </qotd-saying> -->
 
+   <!-- <goals-info> </goals-info> -->
+
+ </div>
 
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/angular-route/angular-route.min.js"></script>
   <script src="lib/jquery/dist/jquery.min.js"></script>
   <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
-  <script src="app.js"></script>
   <script src='controller/MainController.js'></script>
   <script src="directives/nav-bar.js"></script>
   <script src="directives/goals.js"></script>
   <script src="directives/qotd.js"></script>
+  <script src="app.js"></script>
 
 
 

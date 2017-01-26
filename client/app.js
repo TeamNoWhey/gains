@@ -2,10 +2,26 @@
 
 var app = angular.module ('FitnessApp', ['ngRoute']);
 
-app.config(function($routeProvider)  {
+app.config(function($routeProvider, $locationProvider)  {
   $routeProvider
     .when('/', {
-      templateUrl: 'index.html',
+      templateUrl: 'views/goals.html',
+      // controller: 'MainController'
+    })
+    .when('/home', {
+      templateUrl: 'home.html',
       controller: 'MainController'
+    })
+    .when('/signin', {
+      templateUrl: 'app/auth/signin.html'
     });
+
+    //Uncomment when done routing for clean links
+  $locationProvider.html5Mode(true);
+});
+
+
+app.controller('MainController', function($scope) {
+  $scope.message = 'Everyone see this please.';
+
 });
