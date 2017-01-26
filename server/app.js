@@ -3,6 +3,7 @@ var path = require('path');
 var passport = require('passport');
 //var bodyParser = require('body-parser');
 var morgan = require('morgan');
+var db = require('./db.js');
 
 //Add back in once db file location is confirmed
 //var db = require('wherever db is')
