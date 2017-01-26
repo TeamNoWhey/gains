@@ -16,7 +16,8 @@ app.config(function($routeProvider, $locationProvider)  {
       templateUrl: 'app/auth/signin.html'
     })
     .when('/planworkout', {
-      templateUrl: 'app/planner/planworkout.html'
+      templateUrl: 'app/planner/planworkout.html',
+      // controller: 'DemoCtrl'
     });
 
     //Uncomment when done routing for clean links
