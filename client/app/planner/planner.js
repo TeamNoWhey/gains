@@ -7,4 +7,4 @@ This will me our controller for our html templates for the
 
 .controller('PlannerController', function($scope){
 
-}
+});
