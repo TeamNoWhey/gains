@@ -3,10 +3,10 @@
   "description": "",
   "main": "index.js",
   "authors": [
-    "Tin <tinytheyfon8@gmail.com>"
+    "TeamNoWhey"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/tinytheyfon8/make-america-swole-again",
+  "homepage": "https://github.com/TeamNoWhey/make-america-swole-again",
   "private": true,
   "ignore": [
     "**/.*",
