@@ -1,4 +1,4 @@
-var app = angular.module('masa.home', []);
+var app = angular.module('Home', []);
 
 app.controller('HomeCtrl', ['$scope', function($scope) {
 
