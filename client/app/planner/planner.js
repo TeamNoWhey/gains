@@ -1,11 +1,6 @@
-angular.module('FILLMEIN.FILLMEIN', [])
+angular.module('masa.workout', [])
 
-/*
-This will me our controller for our html templates for the
-/planworkout route
-*/
-
-.controller('PlannerController', function($scope){
+.controller('WorkoutCtrl', function($scope){
 
   // $scope.exercises = [];
   $scope.exercisesExample = [
