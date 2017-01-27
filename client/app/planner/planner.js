@@ -1,10 +1,5 @@
 var app = angular.module('Planner', []);
 
-/*
-This will me our controller for our html templates for the
-/planworkout route
-*/
-
 app.controller('PlannerCtrl', function($scope){
 
 

@@ -26,7 +26,7 @@ app.config(function($routeProvider, $locationProvider)  {
 });
 
 
-app.controller('FitnessAppCtrl', function($scope) {
+// app.controller('FitnessAppCtrl', function($scope) {
 
-  //Empty in case it's needed for something
-});
+//   //Empty in case it's needed for something
+// });
