@@ -1,3 +1,20 @@
+<!-- Keep this file for a backup -->
+
+<form ng-submit="add()" ng-controller="PlannerCtrl" >
+  <div>
+    <div>
+      <div>
+        <input type="text" placeholder="Enter Exercise" ng-model="newExercise.name">
+        <input type="text" placeholder="Enter Sets" ng-model="newExercise.sets">
+        <input type="text" placeholder="Target Reps" ng-model="newExercise.reps">
+        <input type="text" placeholder="Target Weight" ng-model="newExercise.targetWeight">
+
+      </div>
+
+    </div>
+
+<div>
+  <br>
   <button ng-click="add()" id="adder" type="button">Add workout</button>
 </div>
 
@@ -15,8 +32,6 @@
       </input>
       <input id="weightActual" placeholder="Weight" ng-model="exercise.actualWeight">
       </input>
-
-      {{exercise.reps}}
     </div>
   </div>
 </form>
@@ -27,7 +42,6 @@
   <!-- Add in ng-click to send post request -->
   <button type="button">Log This Workout!</button>
 </div>
-
 
     <!-- This is the input box for type of workout -->
     <!--Removed for now
