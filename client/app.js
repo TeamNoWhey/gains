@@ -1,4 +1,4 @@
-var app = angular.module ('FitnessApp', ['Home', 'ngRoute']);
+var app = angular.module ('FitnessApp', ['Home', 'Planner', 'ngRoute']);
 
 app.config(function($routeProvider, $locationProvider)  {
   $routeProvider
@@ -15,7 +15,7 @@ app.config(function($routeProvider, $locationProvider)  {
     })
     .when('/planworkout', {
       templateUrl: 'app/planner/planworkout.html',
-      // controller: 'DemoCtrl'
+      controller: 'PlannerCtrl'
     })
     .otherwise({
       redirectTo: '/home'
