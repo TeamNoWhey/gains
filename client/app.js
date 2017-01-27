@@ -1,8 +1,4 @@
-var app = angular.module ('masa', [
-  'masa.home',
-  'masa.workout',
-  'ngRoute'
-]);
+var app = angular.module ('FitnessApp', ['Home', 'Planner', 'ngRoute']);
 
 app.config(function($routeProvider, $locationProvider)  {
   $routeProvider
@@ -19,7 +15,7 @@ app.config(function($routeProvider, $locationProvider)  {
     })
     .when('/planworkout', {
       templateUrl: 'app/planner/planworkout.html',
-      controller: 'WorkoutCtrl'
+      controller: 'PlannerCtrl'
     })
     .otherwise({
       redirectTo: '/home'

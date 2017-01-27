@@ -1,20 +1,24 @@
-angular.module('masa.workout', [])
-
-.controller('WorkoutCtrl', function($scope){
-
-  // $scope.exercises = [];
-  $scope.exercisesExample = [
-    {name: 'incline bench', sets: 3, reps: 12, target_weight: 185},
-    {name: 'deadlift', sets: 4, reps: 8, target_weight: 225},
-    {name: 'db thrusters', sets: 3, reps: 12, target_weight: 30}
-  ];
-
-  $scope.addExercise = function(passInFormInputs) {
-    $scope.exercises.push({'id':'choice'+newItemNo});
-  };
+var app = angular.module('Planner', []);
+app.controller('PlannerCtrl', function($scope){
 
 
+  // $scope.exercises = [1,2,3];
+  $scope.newExercise = {};
+  $scope.exercises = [];
 
+  $scope.add = function() {
+    console.log('Hey add button worked!');
+    $scope.exercises.push(this.newExercise);
+    this.newExercise = {};
+    // $scope.workouts.push
+    console.log(this.exercises);
+
+  }
+
+// app.factory('addWorkout', function() {
+//   this.add = function () {
+
+// }
 
 
 });
