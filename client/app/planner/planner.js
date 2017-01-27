@@ -1,4 +1,5 @@
 var app = angular.module('Planner', []);
+
 app.controller('PlannerCtrl', function($scope){
 
 
@@ -15,10 +16,17 @@ app.controller('PlannerCtrl', function($scope){
 
   }
 
+// }
+
+//   $timeout (function() {
+//     console.log('timeout excercises', this.exercises);
+//   }, 15000
+// );
+
+
 // app.factory('addWorkout', function() {
 //   this.add = function () {
 
 // }
-
 
 });
