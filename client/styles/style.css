@@ -6,6 +6,9 @@ body {padding-top: 65px;
   left: 30%;
   border-style: dotted;
   width: 40%;
+  background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+  background: rgba(204, 204, 204, 0.5);
+  font-family: 'Georgia', 'Serif';
 }
 
 .goalsHeader {
@@ -15,4 +18,5 @@ body {padding-top: 65px;
 
 .quote {
   text-align: center;
+  font-family: 'Palatino Linotype', 'Lucida Sans Unicode', 'sans-serif';
 }
