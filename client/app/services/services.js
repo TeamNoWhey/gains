@@ -14,9 +14,9 @@ angular.module('masa.services', [])
       url: '/workoutHistory',
       data: exercisesData
     })
-    .then(function(resp) {
-      console.log('Successfully posted the data server side where it can be stored in the user\'s db:', resp.data);
-      return resp.data;
+    .then(function(res) {
+      console.log('Successfully posted the data server side where it can be stored in the user\'s db:', res);
+      return res;
     })
     .catch(function(err) {
       console.error(err);
