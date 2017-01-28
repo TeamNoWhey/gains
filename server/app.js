@@ -14,33 +14,23 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var app = express();
 
-<<<<<<< c9ed3dd2d3c23e49eee460c263d044d82931f87f
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json() );
 
-app.use(morgan('dev'));
-
-app.use(express.static(path.join(__dirname, '../client')));
-=======
 app.use(morgan('dev')); // o()xxxx[{::::::::::::::::::::::::::::::::::>
 app.use(express.static(path.join(__dirname, '../client'))); // o()xxxx[{::::::::::::::::::::::::::::::::::>
->>>>>>> reorganized server structure
 
 // app.use('/', landingPage);
 // app.use('/login', login);
 // app.use('/workout', workout);
 // app.use('/feed', feed);
 
-<<<<<<< c9ed3dd2d3c23e49eee460c263d044d82931f87f
 app.post('/api/exercises', function(req, res) {
   console.log('This route is getting hit. Here\'s the requesttttt', req.body);
   res.status(200).end();
 });
 
-app.use(function(req, res) {
-=======
 app.use(function(req, res) { // o()xxxx[{::::::::::::::::::::::::::::::::::> 
->>>>>>> reorganized server structure
   // Use res.sendfile, as it streams instead of reading the file into memory.
   res.sendFile(path.resolve(__dirname + '/../client/index.html'));
 });
