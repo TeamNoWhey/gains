@@ -16,11 +16,14 @@ angular.module('masa.services', [])
     })
     .then(function(res) {
       console.log('Successfully posted the data server side where it can be stored in the user\'s db:', res);
-      return res;
-    })
-    .catch(function(err) {
+      // console.log('data that was sent:', exercisesData);
+      // return res;
+    }, function(err) {
       console.error(err);
     })
+    // .catch(function(err) {
+    //   console.error(err);
+    // })
   };
 
 
