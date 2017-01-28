@@ -1,43 +1,38 @@
-<form ng-submit="add()" ng-controller="PlannerCtrl" ng-style="{'background': 'rgb(204, 204, 204)', 'background': 'rgba(204, 204, 204, 0.5)'}">
+<!-- input fields for adding an exercise to the workout plan -->
+<form ng-controller="PlannerCtrl" ng-style="{'background': 'rgb(204, 204, 204)', 'background': 'rgba(204, 204, 204, 0.5)'}">
+
   <div>
-    <div>
-      <div>
-        <input type="text" placeholder="Enter Exercise" ng-model="newExercise.name">
-        <input type="text" placeholder="Enter Sets" ng-model="newExercise.sets">
-        <input type="text" placeholder="Target Reps" ng-model="newExercise.reps">
-        <input type="text" placeholder="Target Weight" ng-model="newExercise.targetWeight">
-
-      </div>
-
-    </div>
-
-<div>
-  <button ng-click="add()" id="adder" type="button">Add workout</button>
-</div>
-
-
-
-    <!-- This is the input boxes for reps, sets, target weight, weight -->
-    <br>
-    <div ng-repeat="exercise in exercises track by $index">
-      <input id="exerciseName" type="text" value="{{exercise.name}}" readonly>
-      <input id="numOfSets" placeholder="Number of Sets" ng-model="exercise.sets">
-      </input>
-      <input id="numOfReps" placeholder="Number of Reps" ng-model="exercise.reps">
-      </input>
-      <input id="weightTarget" placeholder="Target Weight" ng-model="exercise.targetWeight">
-      </input>
-      <input id="weightActual" placeholder="Weight" ng-model="exercise.actualWeight">
-      </input>
-    </div>
+    <input type="text" placeholder="Enter Exercise" ng-model="newExercise.name">
+    <input type="text" placeholder="Enter Sets" ng-model="newExercise.sets">
+    <input type="text" placeholder="Target Reps" ng-model="newExercise.reps">
+    <input type="text" placeholder="Target Weight" ng-model="newExercise.targetWeight">
   </div>
+
+  <br>
+
   <div>
-    <!-- Add in ng-click to send post request -->
-
-    <button type="button" ng-click="logWorkouts()">Log This Workout!</button>
+    <button ng-click="add()" id="adder" type="button">Add workout</button>
   </div>
+
+<br>
+
+<!-- exercises added into the workout plan -->
+
+  <div ng-repeat="exercise in exercises track by $index">
+    <input id="exerciseName" type="text" value="{{exercise.name}}" readonly>
+    <input id="numOfSets" placeholder="Number of Sets" ng-model="exercise.sets"></input>
+    <input id="numOfReps" placeholder="Number of Reps" ng-model="exercise.reps"></input>
+    <input id="weightTarget" placeholder="Target Weight" ng-model="exercise.targetWeight"></input>
+    <input id="weightActual" placeholder="Weight" ng-model="exercise.actualWeight"></input>
+  </div>
+
+  <br>
+
+  <div>
+    <button type="button" ng-click="logWorkout()" id="logger">Log</button>
+  </div>
+
 </form>
-
 
 
     <!-- This is the input box for type of workout -->
