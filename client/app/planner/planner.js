@@ -7,7 +7,6 @@ app.controller('PlannerCtrl', ['$scope', 'WorkoutsFac', function($scope, Workout
   $scope.add = function() {
     console.log('adding new exercise to the workout plan');
     console.log('this is the new exercise:', $scope.newExercise);
-    // console.log('Hey add button worked!');
     $scope.exercises.push($scope.newExercise);
     console.log('exercises in workout plan:', $scope.exercises);
     $scope.newExercise = {};
