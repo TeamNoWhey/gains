@@ -1,8 +1,8 @@
 var app = angular.module('Planner', []);
 // var app = angular.module('Planner', ['masa.services']);
 
-app.controller('PlannerCtrl', function($scope) {
-// app.controller('PlannerCtrl', ['WorkoutsFac', function($scope, WorkoutsFac) {
+app.controller('PlannerCtrl', function($scope, $http){
+
 
   // $scope.exercises = [1,2,3];
   $scope.newExercise = {};
@@ -20,22 +20,21 @@ app.controller('PlannerCtrl', function($scope) {
     this.newExercise = {};
     // $scope.workouts.push
     console.log(this.exercises);
-
   }
 
+  //Takes exercises array and sends post with data to server
+  $scope.logWorkouts = function() {
+    console.log('Hey log workout button works!');
+    console.log('This.exercises inside logWorkouts: ', this.exercises);
 
-
-// }
-
-//   $timeout (function() {
-//     console.log('timeout excercises', this.exercises);
-//   }, 15000
-// );
-
-
-// app.factory('addWorkout', function() {
-//   this.add = function () {
-
-// }
+    $http.post('/api/exercises', this.exercises)
+    .then(function(success, error) {
+      if (error) {
+        console.log('Error posting to /api/exercises', error);
+      } else {
+        console.log('Success?!', success);
+      }
+    });
+  }
 
 });
