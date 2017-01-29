@@ -33,7 +33,7 @@ db.knex.schema.createTable('exercises', function (table) {
   table.timestamps();
 });  
 
-db.knex.schema.createTable('workout-history', function (table) { // should each user have their own individual workout-history table.
+db.knex.schema.createTable('history', function (table) { // should each user have their own individual workout-history table.
   // Otherwise, this table will become very large, causing significant performance issues
   table.increments(); // foreign key for user
   table.string('name', 255); // foreign key for exercise name

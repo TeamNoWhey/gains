@@ -28,8 +28,11 @@ module.exports = {
       exercises.forEach((exercise) => {
       // lookup the eid by e-name
       // have a ref to user by uid
-        var eid = knex('exercises').select('eid').where({name: exercise.name});
+        var eid = 7;
+        // knex('exercises').select('eid').where('name', exercise.name) || 7;
+        console.log(eid);
 
+        // uid is hard-coded to 1 because without signup and signin, there is no user account to tie the exercise and workout data to
         knex('history')
           .insert({uid: 1, eid: eid, sets: exercise.sets, reps: exercise.reps, weight: exercise.actualWeight})
           .then(function() {
