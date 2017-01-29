@@ -78,11 +78,13 @@
 
 
                                 <div class="form-group">
-                                    <label for="email" class="col-md-3 control-label">Email</label>
+                                    <label for="email" class="col-md-3 control-label">Username</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" name="email" placeholder="Email Address">
+                                        <input ng-model='signUpData.username' type="text" class="form-control" name="username" placeholder="Username">
                                     </div>
                                 </div>
+
+                                <!-- Database is only taking username and password atm. Uncomment for more functionality later.
 
                                 <div class="form-group">
                                     <label for="firstname" class="col-md-3 control-label">First Name</label>
@@ -96,24 +98,20 @@
                                         <input type="text" class="form-control" name="lastname" placeholder="Last Name">
                                     </div>
                                 </div>
+
+                                -->
+
                                 <div class="form-group">
                                     <label for="password" class="col-md-3 control-label">Password</label>
                                     <div class="col-md-9">
-                                        <input type="password" class="form-control" name="passwd" placeholder="Password">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="icode" class="col-md-3 control-label">Invitation Code</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" name="icode" placeholder="">
+                                        <input ng-model='signUpData.password' type="password" class="form-control" name="passwd" placeholder="Password">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <!-- Button -->
                                     <div class="col-md-offset-3 col-md-9">
-                                        <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
+                                        <button ng-click='signUp()' id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
                                         <span style="margin-left:8px;">or</span>
                                     </div>
                                 </div>

@@ -1,4 +1,4 @@
-var app = angular.module ('FitnessApp', ['Home', 'Planner', 'ngRoute']);
+var app = angular.module ('FitnessApp', ['Home', 'Planner', 'Auth', 'ngRoute']);
 
 app.config(function($routeProvider, $locationProvider)  {
   $routeProvider
@@ -11,7 +11,8 @@ app.config(function($routeProvider, $locationProvider)  {
       controller: 'HomeCtrl'
     })
     .when('/signin', {
-      templateUrl: 'app/auth/signin.html'
+      templateUrl: 'app/auth/signin.html',
+      controller: 'AuthCtrl'
     })
     .when('/planworkout', {
       templateUrl: 'app/planner/planworkout.html',
