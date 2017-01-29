@@ -5,9 +5,9 @@ app.controller('HomeCtrl', function($scope, $http) {
 
 
   $scope.goals = [
-  'Goal #1 with a checkboxxxxx after',
-  'Goal #2 sjdakdjka',
-  'Goal #3 jkjkljjkljijo'
+  'Goal #1 Lose fat',
+  'Goal #2 Gain muscle',
+  'Goal #3 Get swole'
   ];
 
 

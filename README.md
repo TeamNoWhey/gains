@@ -1,4 +1,4 @@
-# Make-America-Swole-Again
+# Make-America-Swole-Again (M.A.S.A)
 
 
 ## Welcome to M.A.S.A
@@ -32,7 +32,7 @@ Y'all it's going to be YUGE! And even more important, so are you!
 * Angular
 * PostgreSQL 
 * Express JS
-* Node
+* Node JS
 
 ## All of Our Dependencies to Make This Awesomer
 
@@ -48,6 +48,11 @@ Y'all it's going to be YUGE! And even more important, so are you!
 
 http://quotes.rest/qod.json?category=inspire
 
+## Our Exercise Data
+
+In our exercises-data.js file there is an array of objects, each with an exercise name and muscle group that the exercise targets. This file contains hundreds of exercises for every muscle group, but maybe that's not enough? Something to consider adding onto M.A.S.A is an API that can get even more information on those exercises (perhaps how to perform them correctly, calories burned while doing them, specific muscles that are used, etc.) so that our users can become more swole! That would be even more YUGE!
+
+Our users shouldn't have to be asked whether or not they lift, bro. 
 
 ## The Database
 
@@ -57,11 +62,10 @@ For mac users we recommend downloading the PostgreSQL app in order to more easil
 
 ## Our Engineers and Fitness Gurus
 
-* Nick Barnett, 
-* Rachel DePriest, 
-* Forrest Miller, 
+* Nick Barnett 
+* Rachel DePriest 
+* Forrest Miller 
 * Tin Nguyen
-
 
 ## Features That We Wanted To Add:
  * Autocomplete for entering in a workout 
@@ -76,4 +80,3 @@ For mac users we recommend downloading the PostgreSQL app in order to more easil
 ## License 
 
 Team NoWhey
-
