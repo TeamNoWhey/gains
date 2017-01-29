@@ -15,7 +15,7 @@ angular.module('masa.services', [])
       data: exercisesData
     })
     .then(function(res) {
-      console.log('Successfully posted the data server side where it can be stored in the user\'s db:', res);
+      console.log('Successfully posted the data server side where it can be stored in the user\'s db:', res.data);
       // console.log('data that was sent:', exercisesData);
       // return res;
     }, function(err) {
@@ -26,6 +26,17 @@ angular.module('masa.services', [])
     // })
   };
 
+  var getWorkoutHistory = function() {
+    return $http({
+      method: 'GET',
+      url: '/workoutHistory'
+    })
+    .then(function(res) {
+      console.log('Successfully retrieved user\'s workout history from the db:', res.data);
+    }, function(err) {
+      console.error(err);
+    })
+  };
 
   // var getAll = function() { 
   //   return $http({
@@ -49,9 +60,8 @@ angular.module('masa.services', [])
   // };
 
   return {
-    storeWorkout: storeWorkout
-    // getAll: getAll,
-    // addOne: addOne
+    storeWorkout: storeWorkout,
+    getWorkoutHistory: getWorkoutHistory
   };
 
   // var changeViewShorten = function() {
