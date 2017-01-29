@@ -2,4 +2,5 @@
 <div ng-controller="HistoryCtrl" ng-style="{'background': 'rgb(204, 204, 204)', 'background': 'rgba(204, 204, 204, 0.5)'}">
 
   <button type="button" ng-click="seeWorkoutHistory()" id="historyViewer">Check out history</button>
+  <div ng-repeat="exercise in history track by $index"></div>
 </div>

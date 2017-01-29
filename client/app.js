@@ -1,4 +1,4 @@
-var app = angular.module ('FitnessApp', ['Home', 'Planner', 'ngRoute']);
+var app = angular.module ('FitnessApp', ['Home', 'Planner', 'History', 'ngRoute']);
 
 app.config(function($routeProvider, $locationProvider)  {
   $routeProvider
