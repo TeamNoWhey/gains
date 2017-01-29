@@ -19,17 +19,23 @@ module.exports = {
     }]
     */
 
-    console.log('trying to insert workout exercise data into workout history');
-    console.log('this is what we are trying to insert:', req.body);
-
+    console.log('inserting workout exercise data into workout history');
     var exercises = req.body;
+    console.log('this is what is being inserted:', exercises);
+
 
     if (exercises) {
       exercises.forEach((exercise) => {
-      // lookup the eid by e-name
-      // have a ref to user by uid
+        // lookup the eid by e-name
+        // have a ref to user by uid
+        console.log(exercise.name); // correctly logs exercise's name
         var eid = 7;
-        // knex('exercises').select('eid').where('name', exercise.name) || 7;
+        knex('exercises')
+          .select('eid')
+          .where('name', exercise.name) // if the name doesn't match db then eid will not be set properly
+          .then(function(exerciseId) {
+            eid = exerciseId || 7;
+          });
         console.log(eid);
 
         // uid is hard-coded to 1 because without signup and signin, there is no user account to tie the exercise and workout data to
@@ -40,7 +46,28 @@ module.exports = {
           }); 
       });
     }
+  },
+
+  getWorkoutHistory: function(req, res) {
+    // uid is hard-coded
+    knex('history')
+      .select('eid', 'sets', 'reps', 'weight')
+      .where('uid', 1)
+      .then(function(exercises) { // should return an array of exercise objects - {eid: , sets: , reps: , weight: }
+        exercises.forEach((exercise) => { // replacing eid with e_name. this method seems very inefficient...find a better way later
+          knex('exercises')
+          .select('name')
+          .where('eid', exercise.eid) // if the name doesn't match db then eid will not be set properly
+          .then(function(exerciseName) { // query returns exerciseName
+            console.log('name of exercise with id', exercise.eid + ':', exerciseName);
+            exercise.eid = exerciseName; // right now, all exercise names will correspond to the eid of 7, i.e. cable curl
+          });
+        });
+        console.log('array of objects with exercise data being returned to client:', exercises);        
+        res.json(exercises); // could do res.json() here
+      });
   }
+};
 
 
 
@@ -123,4 +150,5 @@ module.exports = {
   //       });
   //   }
   // }
-};
+
+
