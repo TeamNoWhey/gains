@@ -2,7 +2,8 @@ var db = require('./db.js');
 
 db.knex.schema.createTable('users', function (table) {
   table.increments(); // `id` int unsigned not null auto_increment primary key // user.increments('id').primary();
-  table.string('name', 255);
+  table.string('first_name', 255);
+  table.string('last_name', 255);
   table.string('username', 255).unique();
   table.string('email', 255); // input validation should occur before indertion into the db
   table.string('password', 25);
