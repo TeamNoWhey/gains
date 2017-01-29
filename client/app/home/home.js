@@ -16,6 +16,7 @@ app.controller('HomeCtrl', function($scope, $http) {
     .then(function(response) {
       var data = response.data.contents.quotes;
       data.forEach(function(item) {
+        console.log(item);
         $scope.quote = item
       });
     })

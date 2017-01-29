@@ -38,7 +38,7 @@ angular.module('masa.services', [])
     })
   };
 
-  // var getAll = function() { 
+  // var getAll = function() {
   //   return $http({
   //     method: 'GET',
   //     url: '/api/links'
@@ -69,7 +69,27 @@ angular.module('masa.services', [])
   //     $location.path(view);
   //   };
   // };
-});
+})
+  .factory('AuthFact', function($http, $location, $window) {
+
+  var signUp = function(signUpData) {
+
+    return $http.post('/signup', signUpData)
+      .then(function(res) {
+        console.log('This is data being sent: ', signUpData, 'then res:', res);
+      }, function(err) {
+        console.log('Signup Error: ', err)
+      });
+  }
+
+
+    return {
+      signUp: signUp
+    }
+
+  });
+
+
 // .factory('Auth', function ($http, $location, $window) {
 //   // Don't touch this Auth service!!!
 //   // it is responsible for authenticating our user
