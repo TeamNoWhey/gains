@@ -8,6 +8,7 @@ var path = require('path');
 
 module.exports = function (app, express) {
   app.post('/workoutHistory', userController.storeWorkout);
+  app.get('/workoutHistory', userController.getWorkoutHistory);
 
 
 
