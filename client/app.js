@@ -17,6 +17,10 @@ app.config(function($routeProvider, $locationProvider)  {
       templateUrl: 'app/planner/planworkout.html',
       controller: 'PlannerCtrl'
     })
+    .when('/history', {
+      templateUrl: 'app/history/history.html',
+      controller: 'HistoryCtrl'
+    })
     .otherwise({
       redirectTo: '/home'
     });
