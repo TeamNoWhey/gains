@@ -29,20 +29,20 @@ Y'all it's going to be YUGE! And even more important, so are you!
 
 ## Our Amazing Tech
 
-Angular
-PostgreSQL 
-Express JS
-Node
+* Angular
+* PostgreSQL 
+* Express JS
+* Node
 
 ## All of Our Dependencies to Make This Awesomer
 
-Body-Parser,
-Express,
-Knex,
-Morgan,
-Passport,
-Pg,
-Router
+* Body-Parser
+* Express
+* Knex
+* Morgan
+* Passport
+* Pg
+* Router
 
 ## Our Quote of the Day API
 
@@ -57,21 +57,21 @@ For mac users we recommend downloading the PostgreSQL app in order to more easil
 
 ## Our Engineers and Fitness Gurus
 
-Nick Barnett, 
-Rachel DePriest, 
-Forrest Miller, 
-and Tin Nguyen
+* Nick Barnett, 
+* Rachel DePriest, 
+* Forrest Miller, 
+* Tin Nguyen
 
 
 ## Features That We Wanted To Add:
- Autocomplete for entering in a workout 
- An interval timer
- Calories calculator and counter
- Tracking user's weight loss/gain
- A feed to show everyone's progress and workouts for the day
- Before and after pictures of the users to show their physical progress 
- Social media push notifications to share user's progress with their friends
- Customizable goals
+ * Autocomplete for entering in a workout 
+ * An interval timer
+ * Calories calculator and counter
+ * Tracking user's weight loss/gain
+ * A feed to show everyone's progress and workouts for the day
+ * Before and after pictures of the users to show their physical progress 
+ * Social media push notifications to share user's progress with their friends
+ * Customizable goals
 
 ## License 
 
