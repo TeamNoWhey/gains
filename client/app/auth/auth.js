@@ -6,7 +6,11 @@ app.controller('AuthCtrl', ['$scope', 'AuthFact', function($scope, AuthFact) {
   $scope.signUp = function(signUpData) {
     // $scope.signUpData.push($scope.userName)
     console.log(this.signUpData);
-    AuthFact.signUp($scope.signUpData);
+    var res = AuthFact.signUp($scope.signUpData);
+    // .then(function(res) {
+    //   console.log('we are back in signup html, the originator ^^^^^^^^:', res);
+    // });
+    setTimeout(() => console.log(res), 5000);
 
   }
 }]);

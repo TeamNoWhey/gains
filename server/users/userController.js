@@ -72,26 +72,34 @@ module.exports = {
     var username = req.body.username;
     var password = req.body.password;
 
+    console.log('inside signup');
+    console.log('req.body:', req.body);
+
     // check to see if user already exists
     knex('users')
       .select('username')
       .where('username', username)
       .then(function(user) {
-        if (user) {
+        if (user.length) {
+          console.log('this user', user, 'already exists');
           next(new Error('User already exist!'));
         } else {
           // make a new user if not one
           knex('users')
-            .insert({username: username, password: password});
+            .insert({username: username, password: password})
+            .then(function(user) {
+              console.log('created user:', user);
+            })
         }
         return user;
       })
       .then(function(user) {
+        console.log('giving user jwt token');
         // create token to send back for auth
         var token = jwt.encode(user, 'secret');
         res.json({token: token});
       })
-      .fail(function (error) {
+      .catch(function (error) {
         next(error);
       });
   }

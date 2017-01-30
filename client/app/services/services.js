@@ -77,6 +77,7 @@ angular.module('masa.services', [])
     return $http.post('/signup', signUpData)
       .then(function(res) {
         console.log('This is data being sent: ', signUpData, 'then res:', res);
+        return res.data.token;
       }, function(err) {
         console.log('Signup Error: ', err)
       });
