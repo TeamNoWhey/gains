@@ -43,7 +43,7 @@ module.exports = {
           .insert({uid: 1, eid: eid, sets: exercise.sets, reps: exercise.reps, weight: exercise.actualWeight})
           .then(function() {
             res.status(200).end('workout exercise data was successfuly stored in workout history!');
-          }); 
+          });
       });
     }
   },
@@ -63,7 +63,7 @@ module.exports = {
             exercise.eid = exerciseName; // right now, all exercise names will correspond to the eid of 7, i.e. cable curl
           });
         });
-        console.log('array of objects with exercise data being returned to client:', exercises);        
+        console.log('array of objects with exercise data being returned to client:', exercises);
         res.json(exercises); // could do res.json() here
       });
   },
@@ -108,6 +108,7 @@ module.exports = {
     var username = req.body.username;
     var password = req.body.password;
 
+    console.log('signiningiandiand');
    knex('users')
       .select('username')
       .where('username', username)
@@ -116,31 +117,30 @@ module.exports = {
           next(new Error('User does not exist'));
         } else {
           // return user.comparePasswords(password)
-          // below should be equivalent 
-          userPassword;
+          // below should be equivalent
+          var userPassword = '';
           knex('users')
             .select('password')
             .where('username', username)
             .then(function(userPw) {
-              console.log('signing in, found user in db, this is the user\'s pw:', userPw);
-              userPassword = userPw;
+              userPassword = userPw[0].password;
+              return password === userPassword;
+            })
+            .then(function(foundUser) { // foundUser should be either true or false
+              if (foundUser) {
+                var token = jwt.encode(user, 'secret');
+                res.json({token: token});
+              } else {
+                return next(new Error('No user'));
+              }
+              });
+            }
+            })
+            .catch(function (error) {
+              next(error);
             });
-          return password = userPassword;
-        }
-        .then(function(foundUser) { // foundUser should be either true or false
-          if (foundUser) {
-            var token = jwt.encode(user, 'secret');
-            res.json({token: token});
-          } else {
-            return next(new Error('No user'));
-          }
-        });
-      })
-      .catch(function (error) {
-        next(error);
-      });
   },
-  
+
   // checkAuth: function (req, res, next) {
   //   // checking to see if the user is authenticated
   //   // grab the token in the header is any

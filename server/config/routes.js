@@ -10,10 +10,7 @@ module.exports = function (app, express) {
   app.post('/workoutHistory', userController.storeWorkout);
   app.get('/workoutHistory', userController.getWorkoutHistory);
 
-  app.post('/signin', function(req, res) {
-    console.log('Hi signin route hit.');
-    res.status(200).end();
-  })
+  app.post('/signin', userController.signin)
 
 
   //Change this function to user.Controller whatever
