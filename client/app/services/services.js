@@ -83,9 +83,20 @@ angular.module('masa.services', [])
       });
   }
 
+  var login = function(loginData) {
+
+    return $http.post('/login', loginData)
+    .then(function(res) {
+      console.log('This is logindata being sent: ', loginData)
+    }, function(err) {
+      console.log('Login Error: ', err);
+    });
+  }
+
 
     return {
-      signUp: signUp
+      signUp: signUp,
+      login: login
     }
 
   });
