@@ -101,6 +101,8 @@ angular.module('masa.services', [])
     });
   };
 
+
+  //Not really working yet.
   var isAuth = function () {
     return !!$window.localStorage.getItem('masaToken');
   };

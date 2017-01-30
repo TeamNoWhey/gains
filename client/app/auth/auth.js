@@ -7,7 +7,6 @@ app.controller('AuthCtrl', ['$scope', '$location', '$window', 'AuthFact', functi
   $scope.signUp = function(signUpData) {
     AuthFact.signUp($scope.signUpData)
     .then(function(token) {
-      console.log('signu token', token);
       $window.localStorage.setItem('masaToken', token)
       $location.path('/home');
     })
