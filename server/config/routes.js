@@ -7,15 +7,14 @@ var path = require('path');
 
 
 module.exports = function (app, express) {
+
+  app.post('/signin', userController.signin);
+  app.post('/signup', userController.signup);
+  app.get('/signedin', userController.checkAuth);
+
+
   app.post('/workoutHistory', userController.storeWorkout);
   app.get('/workoutHistory', userController.getWorkoutHistory);
-
-  app.post('/signin', userController.signin)
-
-
-  //Change this function to user.Controller whatever
-  app.post('/signup', userController.signup);
-
 
 
   app.use(function(req, res) {

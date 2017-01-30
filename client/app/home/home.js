@@ -16,7 +16,6 @@ app.controller('HomeCtrl', ['$scope', '$http', 'AuthFact', function($scope, $htt
     .then(function(response) {
       var data = response.data.contents.quotes;
       data.forEach(function(item) {
-        console.log(item);
         $scope.quote = item
       });
     })

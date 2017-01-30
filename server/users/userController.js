@@ -94,6 +94,7 @@ module.exports = {
         return user;
       })
       .then(function(user) {
+      console.log('signup user:', user);
         console.log('giving user jwt token');
         // create token to send back for auth
         var token = jwt.encode(user, 'secret');
@@ -128,8 +129,11 @@ module.exports = {
               return password === userPassword;
             })
             .then(function(foundUser) { // foundUser should be either true or false
+              console.log(foundUser);
               if (foundUser) {
+                console.log('if ran');
                 var token = jwt.encode(user, 'secret');
+                console.log('token', token);
                 res.json({token: token});
               } else {
                 return next(new Error('No user'));
@@ -149,6 +153,7 @@ module.exports = {
     // then decode the token, which we end up being the user object
     // check to see if that user exists in the database
     var token = req.headers['x-access-token'];
+    console.log('Checkauth ran');
     if (!token) {
       next(new Error('No token'));
     } else {
@@ -169,6 +174,7 @@ module.exports = {
         });
     }
   }
+
 };
 
 
