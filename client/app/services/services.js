@@ -7,6 +7,15 @@ angular.module('masa.services', [])
   // (stretch) will need to make a GET request to the server in order to fetch a list of all the exercises for autocomplete
   //    (probably want to cache this)
 
+  // var userInfo = 
+
+  // var getUserInfo = function() {
+    
+  // }
+
+
+
+
 
   var storeWorkout = function(exercisesData) {
     return $http({
