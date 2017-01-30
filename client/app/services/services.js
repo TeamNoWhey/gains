@@ -96,7 +96,10 @@ angular.module('masa.services', [])
 
     return $http.post('/signin', loginData)
     .then(function(res) {
-      console.log('This is logindata being sent: ', loginData)
+      console.log('returning from posting signin info to server');
+      console.log('res.data:', res.data); // gets token back
+      return res.data.token;
+      // console.log('This is logindata being sent: ', loginData)
     }, function(err) {
       console.log('Login Error: ', err);
     });
