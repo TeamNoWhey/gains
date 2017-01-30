@@ -7,10 +7,10 @@ angular.module('masa.services', [])
   // (stretch) will need to make a GET request to the server in order to fetch a list of all the exercises for autocomplete
   //    (probably want to cache this)
 
-  // var userInfo = 
+  // var userInfo =
 
   // var getUserInfo = function() {
-    
+
   // }
 
 
@@ -94,7 +94,7 @@ angular.module('masa.services', [])
 
   var login = function(loginData) {
 
-    return $http.post('/login', loginData)
+    return $http.post('/signin', loginData)
     .then(function(res) {
       console.log('This is logindata being sent: ', loginData)
     }, function(err) {
