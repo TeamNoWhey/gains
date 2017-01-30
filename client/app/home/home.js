@@ -1,6 +1,6 @@
-var app = angular.module('Home', []);
+var app = angular.module('Home', ['masa.services']);
 
-app.controller('HomeCtrl', function($scope, $http) {
+app.controller('HomeCtrl', ['$scope', '$http', 'AuthFact', function($scope, $http, AuthFact) {
   var apiUrl = "http://quotes.rest/qod.json?category=inspire";
 
 
@@ -25,5 +25,7 @@ app.controller('HomeCtrl', function($scope, $http) {
     });
   }
 
-});
+  $scope.signout = AuthFact.signout;
+
+}]);
 

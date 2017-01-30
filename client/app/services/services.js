@@ -90,7 +90,7 @@ angular.module('masa.services', [])
       }, function(err) {
         console.log('Signup Error: ', err)
       });
-  }
+  };
 
   var login = function(loginData) {
 
@@ -100,12 +100,19 @@ angular.module('masa.services', [])
     }, function(err) {
       console.log('Login Error: ', err);
     });
-  }
+  };
+
+  var signout = function () {
+    console.log('Signout clicked')
+    $window.localStorage.removeItem('masaToken');
+    $location.path('/signin');
+  };
 
 
     return {
       signUp: signUp,
-      login: login
+      login: login,
+      signout: signout
     }
 
   });

@@ -108,8 +108,7 @@ module.exports = {
     var username = req.body.username;
     var password = req.body.password;
 
-    console.log('signiningiandiand');
-   knex('users')
+    knex('users')
       .select('username')
       .where('username', username)
       .then(function (user) {
@@ -118,6 +117,8 @@ module.exports = {
         } else {
           // return user.comparePasswords(password)
           // below should be equivalent
+          console.log('usersusers', user);
+          console.log('password:', password);
           var userPassword = '';
           knex('users')
             .select('password')
@@ -133,37 +134,41 @@ module.exports = {
               } else {
                 return next(new Error('No user'));
               }
-              });
-            }
-            })
+              })
             .catch(function (error) {
               next(error);
             });
+              }
+            })
   },
 
-  // checkAuth: function (req, res, next) {
-  //   // checking to see if the user is authenticated
-  //   // grab the token in the header is any
-  //   // then decode the token, which we end up being the user object
-  //   // check to see if that user exists in the database
-  //   var token = req.headers['x-access-token'];
-  //   if (!token) {
-  //     next(new Error('No token'));
-  //   } else {
-  //     var user = jwt.decode(token, 'secret');
-  //     findUser({username: user.username})
-  //       .then(function (foundUser) {
-  //         if (foundUser) {
-  //           res.send(200);
-  //         } else {
-  //           res.send(401);
-  //         }
-  //       })
-  //       .fail(function (error) {
-  //         next(error);
-  //       });
-  //   }
-  // }
+
+  checkAuth: function (req, res, next) {
+    // checking to see if the user is authenticated
+    // grab the token in the header is any
+    // then decode the token, which we end up being the user object
+    // check to see if that user exists in the database
+    var token = req.headers['x-access-token'];
+    if (!token) {
+      next(new Error('No token'));
+    } else {
+      var user = jwt.decode(token, 'secret');
+
+      knex('users')
+        .select()
+        .where('username', user.username)
+        .then(function (foundUser) {
+          if (foundUser.length) { // could return empty array which is truthy
+            res.send(200);
+          } else {
+            res.send(401);
+          }
+        })
+        .catch(function (error) {
+          next(error);
+        });
+    }
+  }
 };
 
 
