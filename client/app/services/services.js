@@ -1,21 +1,6 @@
 angular.module('masa.services', [])
 
-.factory('WorkoutsFac', function ($http) { // throw into workout planner controller
-
-  // need a post of all the exercises data to the server for storage into the db
-  // (stretch) will need to make a GET request to the server for fetching of target weight from the db
-  // (stretch) will need to make a GET request to the server in order to fetch a list of all the exercises for autocomplete
-  //    (probably want to cache this)
-
-  // var userInfo =
-
-  // var getUserInfo = function() {
-
-  // }
-
-
-
-
+.factory('WorkoutsFac', function ($http, $window) { // throw into workout planner controller
 
   var storeWorkout = function(exercisesData) {
     return $http({
@@ -30,9 +15,6 @@ angular.module('masa.services', [])
     }, function(err) {
       console.error(err);
     })
-    // .catch(function(err) {
-    //   console.error(err);
-    // })
   };
 
   var getWorkoutHistory = function() {
@@ -47,39 +29,31 @@ angular.module('masa.services', [])
     })
   };
 
-  // var getAll = function() {
-  //   return $http({
-  //     method: 'GET',
-  //     url: '/api/links'
-  //   })
-  //   .then(function (resp) {
-  //     return resp.data;
-  //   });
-  // };
+  var decode = function() {
+    console.log('decoding user token');
+    var token = $window.localStorage.getItem('masaToken');
+    console.log('token:', token);
+    var user;
 
-  // var addOne = function(url) {
-  //   return $http({
-  //     method: 'POST',
-  //     url: '/api/links',
-  //     data: url,
-  //   })
-  //   .then(function (resp) {
-  //     return resp;
-  //   });
-  // };
+    if (!token) {
+      console.log('the user has no TOKEN!');
+    }
+
+    else {
+      user = jwt.decode(token, 'secret');
+      return user;
+    }
+
+  };
 
   return {
+    decode: decode,
     storeWorkout: storeWorkout,
     getWorkoutHistory: getWorkoutHistory
   };
-
-  // var changeViewShorten = function() {
-  //   $scope.changeView = function(view) {
-  //     $location.path(view);
-  //   };
-  // };
 })
-  .factory('AuthFact', function($http, $location, $window) {
+
+.factory('AuthFact', function($http, $location, $window) {
 
   var signUp = function(signUpData) {
 
@@ -96,7 +70,10 @@ angular.module('masa.services', [])
 
     return $http.post('/signin', loginData)
     .then(function(res) {
-      console.log('This is logindata being sent: ', loginData)
+      console.log('returning from posting signin info to server');
+      console.log('res.data:', res.data); // gets token back
+      return res.data.token;
+      // console.log('This is logindata being sent: ', loginData)
     }, function(err) {
       console.log('Login Error: ', err);
     });
