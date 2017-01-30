@@ -1,6 +1,6 @@
 var app = angular.module('Planner', ['masa.services']);
 
-app.controller('PlannerCtrl', ['$scope', 'WorkoutsFac', function($scope, WorkoutsFac) {
+app.controller('PlannerCtrl', ['$scope', 'WorkoutsFac', '$window', function($scope, WorkoutsFac, $window) {
   $scope.newExercise = {};
   $scope.exercises = [];
 
@@ -15,7 +15,12 @@ app.controller('PlannerCtrl', ['$scope', 'WorkoutsFac', function($scope, Workout
   $scope.logWorkout = function() { // takes the exercises collection and sends it to a POST req, headed towards /workoutHistory
     console.log('about to send exercise data from workout to the server');
     console.log('this is the exercise data:', $scope.exercises);
-    WorkoutsFac.storeWorkout($scope.exercises);
+    // var user = WorkoutsFac.decode();
+    var user = $window.localStorage.getItem('user');
+    console.log('user found before sending data to server:', user);
+    var data = {exercises: $scope.exercises, user: user};
+    // WorkoutsFac.storeWorkout($scope.exercises);
+    WorkoutsFac.storeWorkout(data);
   };
 
   // fake. comment out later

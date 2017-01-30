@@ -5,6 +5,9 @@ app.controller('AuthCtrl', ['$scope', '$location', '$window', 'AuthFact', functi
   $scope.loginData = {};
 
   $scope.signUp = function(signUpData) {
+    console.log('signUpData:', $scope.signUpData);
+
+      $window.localStorage.setItem('user', $scope.signUpData.username);
     AuthFact.signUp($scope.signUpData)
     .then(function(token) {
       $window.localStorage.setItem('masaToken', token)
@@ -17,6 +20,8 @@ app.controller('AuthCtrl', ['$scope', '$location', '$window', 'AuthFact', functi
 
 
   $scope.signIn = function(loginData) {
+    console.log('loginData:', $scope.loginData);
+      $window.localStorage.setItem('user', $scope.loginData.username);
    AuthFact.login($scope.loginData)
    .then(function(token) {
       console.log('token: ', token);
