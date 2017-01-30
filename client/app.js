@@ -1,4 +1,4 @@
-var app = angular.module ('FitnessApp', ['Home', 'Planner', 'Auth', 'ngRoute']);
+var app = angular.module ('FitnessApp', ['Home', 'Planner', 'Auth', 'History', 'ngRoute']);
 
 app.config(function($routeProvider, $locationProvider, $httpProvider)  {
   $routeProvider
@@ -16,6 +16,10 @@ app.config(function($routeProvider, $locationProvider, $httpProvider)  {
       templateUrl: 'app/planner/planworkout.html',
       controller: 'PlannerCtrl',
       // authenticate: true
+    })
+    .when('/history/:user', {
+      templateUrl: 'app/history/history.html',
+      controller: 'HistoryCtrl'
     })
     .otherwise({
       redirectTo: '/home'

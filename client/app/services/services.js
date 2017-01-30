@@ -19,8 +19,9 @@ angular.module('masa.services', [])
 
   var getWorkoutHistory = function() {
     return $http({
-      method: 'GET',
-      url: '/workoutHistory'
+      method: 'GET', // changed from GET becaus
+      url: '/workoutHistory' // /${user}`
+      // params: {user: user}
     })
     .then(function(res) {
       console.log('Successfully retrieved user\'s workout history from the db:', res.data);

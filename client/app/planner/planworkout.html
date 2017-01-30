@@ -2,10 +2,10 @@
 <form ng-controller="PlannerCtrl" ng-style="{'background': 'rgb(204, 204, 204)', 'background': 'rgba(204, 204, 204, 0.5)'}">
 
   <div>
-    <input type="text" placeholder="Enter Exercise" ng-model="newExercise.name">
-    <input type="text" placeholder="Enter Sets" ng-model="newExercise.sets">
-    <input type="text" placeholder="Target Reps" ng-model="newExercise.reps">
-    <input type="text" placeholder="Target Weight" ng-model="newExercise.targetWeight">
+    <input type="text" placeholder="Enter Exercise" ng-model="newExercise.name" required>
+    <input type="text" placeholder="Enter Sets" ng-model="newExercise.sets" required>
+    <input type="text" placeholder="Target Reps" ng-model="newExercise.reps" required>
+    <input type="text" placeholder="Target Weight" ng-model="newExercise.targetWeight" required>
   </div>
 
   <br>
@@ -18,12 +18,12 @@
 
 <!-- exercises added into the workout plan -->
 
-  <div ng-repeat="exercise in exercises track by $index">
+  <div name='exerciseData' ng-repeat="exercise in exercises track by $index">
     <input id="exerciseName" type="text" value="{{exercise.name}}" readonly>
-    <input id="numOfSets" placeholder="Number of Sets" ng-model="exercise.sets"></input>
-    <input id="numOfReps" placeholder="Number of Reps" ng-model="exercise.reps"></input>
+    <input id="numOfSets" placeholder="Number of Sets" ng-model="exercise.sets" required></input>
+    <input id="numOfReps" placeholder="Number of Reps" ng-model="exercise.reps" required></input>
     <input id="weightTarget" placeholder="Target Weight" ng-model="exercise.targetWeight" readonly></input>
-    <input id="weightActual" placeholder="Weight" ng-model="exercise.actualWeight"></input>
+    <input id="weightActual" placeholder="Weight" ng-model="exercise.actualWeight" required></input>
   </div>
 
   <br>

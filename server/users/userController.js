@@ -86,9 +86,14 @@ module.exports = {
 
   getWorkoutHistory: function(req, res) {
     // uid is hard-coded
+    console.log('trying to get workout history from the server side');
+    // console.log('req.params:', req.params);
+
+
+
     knex('history')
       .select('eid', 'sets', 'reps', 'weight')
-      .where('uid', 1)
+      .where('uid', 1) // 1 is hard-coded
       .then(function(exercises) { // should return an array of exercise objects - {eid: , sets: , reps: , weight: }
         exercises.forEach((exercise) => { // replacing eid with e_name. this method seems very inefficient...find a better way later
           knex('exercises')

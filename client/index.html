@@ -17,7 +17,7 @@
 <body  ng-style="{'background-image':'url(https://theysaidso.com/img/bgs/man_on_the_mountain.jpg)', 'background-repeat': 'no-repeat', 'background-size': 'cover'}">
 
  <!-- Navigation Bar -->
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" id="bottombar">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -42,20 +42,25 @@
             <li role="separator" class="divider"></li>
             <li><a href="/planworkout">Plan A Workout</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">View Workout History</a></li>
+            <li><a href="/history">View Workout History</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">View Personal Stats</a></li>
           </ul>
         </li>
-      <a class="navbar-brand" href="/"> Brand Name (M.A.S.A.) </a>
+      <a class="navbar-brand" href="/">
+       <span class="brandchar">M</span>ake
+       <span class="brandchar">A</span>merica
+       <span class="brandchar">S</span>wole
+       <span class="brandchar">A</span>gain
+
+      </a>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/signin">Sign In</a></li> <!-- ng-if to hide if signed in = true -->
+        <li><a href="/signin" class="signinlink">Sign In</a></li> <!-- ng-if to hide if signed in = true -->
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Name & Photo <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">My Profile</a></li>
-            <li><a href="#">Another action</a></li>
             <li><a href="#">Settings</a></li>
             <li role="separator" class="divider"></li>
             <li ng-controller='HomeCtrl' ng-click="signout()"><a href="#">Sign Out</a></li>
@@ -93,10 +98,11 @@
   <!-- <script src="app/planner/autocomplete.js"></script> -->
   <script src="app/planner/planner.js"></script>
   <script src='app/services/services.js'></script>
+  <script src='app/history/history.js'></script>
   <script src='app/auth/auth.js'></script>
+  <script src='app/history/history.js'></script>
   <script src="app.js"></script>
 
 </body>
 
 </html>
-
