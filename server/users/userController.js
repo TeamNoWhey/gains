@@ -102,43 +102,45 @@ module.exports = {
       .catch(function (error) {
         next(error);
       });
-  }
+  },
 
-  // signin: function (req, res, next) {
-  //   var username = req.body.username;
-  //   var password = req.body.password;
+  signin: function (req, res, next) {
+    var username = req.body.username;
+    var password = req.body.password;
 
-  //   findUser({username: username})
-  //     .then(function (user) {
-  //       if (!user) {
-  //         next(new Error('User does not exist'));
-  //       } else {
-  //         return user.comparePasswords(password)
-  //           .then(function (foundUser) {
-  //             if (foundUser) {
-  //               var token = jwt.encode(user, 'secret');
-  //               res.json({token: token});
-  //             } else {
-  //               return next(new Error('No user'));
-  //             }
-  //           });
-  //       }
-  //     })
-  //     .fail(function (error) {
-  //       next(error);
-  //     });
-  // },
+   knex('users')
+      .select('username')
+      .where('username', username)
+      .then(function (user) {
+        if (!user.length) { // evals as true if no user, at least in theory
+          next(new Error('User does not exist'));
+        } else {
+          // return user.comparePasswords(password)
+          // below should be equivalent 
+          userPassword;
+          knex('users')
+            .select('password')
+            .where('username', username)
+            .then(function(userPw) {
+              console.log('signing in, found user in db, this is the user\'s pw:', userPw);
+              userPassword = userPw;
+            });
+          return password = userPassword;
+        }
+        .then(function(foundUser) { // foundUser should be either true or false
+          if (foundUser) {
+            var token = jwt.encode(user, 'secret');
+            res.json({token: token});
+          } else {
+            return next(new Error('No user'));
+          }
+        });
+      })
+      .catch(function (error) {
+        next(error);
+      });
+  },
   
-};
-
-
-
-
-
-
-
-
-
   // checkAuth: function (req, res, next) {
   //   // checking to see if the user is authenticated
   //   // grab the token in the header is any
@@ -162,5 +164,15 @@ module.exports = {
   //       });
   //   }
   // }
+};
+
+
+
+
+
+
+
+
+
 
 
