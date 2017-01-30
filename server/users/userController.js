@@ -108,7 +108,6 @@ module.exports = {
     var username = req.body.username;
     var password = req.body.password;
 
-    console.log('signiningiandiand');
     knex('users')
       .select('username')
       .where('username', username)
@@ -118,6 +117,8 @@ module.exports = {
         } else {
           // return user.comparePasswords(password)
           // below should be equivalent
+          console.log('usersusers', user);
+          console.log('password:', password);
           var userPassword = '';
           knex('users')
             .select('password')
@@ -133,15 +134,15 @@ module.exports = {
               } else {
                 return next(new Error('No user'));
               }
-              });
-            }
-            })
+              })
             .catch(function (error) {
               next(error);
             });
+              }
+            })
   },
 
-  
+
   checkAuth: function (req, res, next) {
     // checking to see if the user is authenticated
     // grab the token in the header is any
