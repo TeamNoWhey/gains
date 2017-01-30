@@ -24,6 +24,7 @@ app.controller('AuthCtrl', ['$scope', '$location', '$window', 'AuthFact', functi
       $window.localStorage.setItem('user', $scope.loginData.username);
    AuthFact.login($scope.loginData)
    .then(function(token) {
+      console.log('token: ', token);
       $window.localStorage.setItem('masaToken', token)
       $location.path('/home');
     })

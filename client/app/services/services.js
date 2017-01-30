@@ -59,7 +59,6 @@ angular.module('masa.services', [])
 
     return $http.post('/signup', signUpData)
       .then(function(res) {
-        console.log('This is data being sent: ', signUpData, 'then res:', res);
         return res.data.token;
       }, function(err) {
         console.log('Signup Error: ', err)
@@ -70,17 +69,20 @@ angular.module('masa.services', [])
 
     return $http.post('/signin', loginData)
     .then(function(res) {
-      console.log('returning from posting signin info to server');
-      console.log('res.data:', res.data); // gets token back
       return res.data.token;
-      // console.log('This is logindata being sent: ', loginData)
+
     }, function(err) {
       console.log('Login Error: ', err);
     });
   };
 
-  var signout = function () {
-    console.log('Signout clicked')
+
+  //Not really working yet.
+  var isAuth = function () {
+    return !!$window.localStorage.getItem('masaToken');
+  };
+
+  var signout = function (){
     $window.localStorage.removeItem('user');
     $window.localStorage.removeItem('masaToken');
     $location.path('/signin');
@@ -90,56 +92,8 @@ angular.module('masa.services', [])
     return {
       signUp: signUp,
       login: login,
+      isAuth: isAuth,
       signout: signout
     }
 
   });
-
-
-// .factory('Auth', function ($http, $location, $window) {
-//   // Don't touch this Auth service!!!
-//   // it is responsible for authenticating our user
-//   // by exchanging the user's username and password
-//   // for a JWT from the server
-//   // that JWT is then stored in localStorage as 'com.shortly'
-//   // after you signin/signup open devtools, click resources,
-//   // then localStorage and you'll see your token from the server
-//   var signin = function (user) {
-//     return $http({
-//       method: 'POST',
-//       url: '/api/users/signin',
-//       data: user
-//     })
-//     .then(function (resp) {
-//       return resp.data.token;
-//     });
-//   };
-
-//   var signup = function (user) {
-//     return $http({
-//       method: 'POST',
-//       url: '/api/users/signup',
-//       data: user
-//     })
-//     .then(function (resp) {
-//       return resp.data.token;
-//     });
-//   };
-
-//   var isAuth = function () {
-//     return !!$window.localStorage.getItem('com.shortly');
-//   };
-
-//   var signout = function () {
-//     $window.localStorage.removeItem('com.shortly');
-//     $location.path('/signin');
-//   };
-
-
-//   return {
-//     signin: signin,
-//     signup: signup,
-//     isAuth: isAuth,
-//     signout: signout
-//   };
-// });

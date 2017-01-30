@@ -1,22 +1,21 @@
 var app = angular.module ('FitnessApp', ['Home', 'Planner', 'Auth', 'ngRoute']);
 
-app.config(function($routeProvider, $locationProvider)  {
+app.config(function($routeProvider, $locationProvider, $httpProvider)  {
   $routeProvider
-    .when('/', {
-      templateUrl: 'app/home/home.html',
-      controller: 'HomeCtrl'
-    })
     .when('/home', {
       templateUrl: 'app/home/home.html',
-      controller: 'HomeCtrl'
+      controller: 'HomeCtrl',
+      // authenticate: true
     })
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',
       controller: 'AuthCtrl'
+
     })
     .when('/planworkout', {
       templateUrl: 'app/planner/planworkout.html',
-      controller: 'PlannerCtrl'
+      controller: 'PlannerCtrl',
+      // authenticate: true
     })
     .otherwise({
       redirectTo: '/home'
@@ -24,7 +23,8 @@ app.config(function($routeProvider, $locationProvider)  {
 
   //This makes Angular routing links look clean, without the #.
   $locationProvider.html5Mode(true);
-});
+
+})
 
 
 // app.controller('FitnessAppCtrl', function($scope) {

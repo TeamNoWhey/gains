@@ -4,6 +4,7 @@ node_modules
 db/
 client/lib
 compiled/
+*.log
 
 # Floobits
 .floo
