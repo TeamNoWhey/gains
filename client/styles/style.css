@@ -1,5 +1,10 @@
+@font-face {
+  font-family: "sugardeath";
+  src: url("../assets/sugar-death-2.regular.ttf") format("truetype");
+}
+
 body {padding-top: 65px;
-	padding-left: 10px;}
+  padding-left: 10px;}
 
 .goals {
   position: absolute;
@@ -13,10 +18,35 @@ body {padding-top: 65px;
 
 .goalsHeader {
   margin-left: 25px;
-
 }
 
 .quote {
   text-align: center;
   font-family: 'Palatino Linotype', 'Lucida Sans Unicode', 'sans-serif';
+}
+
+.navbar-brand {
+  color: rgb(254, 181, 11) !important;
+  font-family: "sugardeath";
+}
+
+.container-fluid {
+  background: rgb(161, 18, 18);
+}
+
+.signinlink {
+  color: white !important;
+}
+
+.dropdown-toggle {
+  color: white !important;
+}
+
+.brandchar {
+  font-size: 2em;
+  text-shadow: 2px 2px 4px #000000
+}
+
+#bottombar {
+   border-bottom: 6px solid black !important;
 }
