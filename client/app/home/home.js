@@ -5,9 +5,12 @@ app.controller('HomeCtrl', ['$scope', '$http', 'AuthFact', function($scope, $htt
 
 
   $scope.goals = [
-  'Goal #1 with a checkboxxxxx after',
-  'Goal #2 sjdakdjka',
-  'Goal #3 jkjkljjkljijo'
+
+  //Make this dynamic at some point and store goals
+  'Goal #1: is to make this dynamic',
+  'Goal #2: where you can check checkboxes',
+  'Goal #3: but for now we\'ll leave it static',
+  'Goal #4: because MVP and this isn\'t important.'
   ];
 
 
@@ -16,7 +19,6 @@ app.controller('HomeCtrl', ['$scope', '$http', 'AuthFact', function($scope, $htt
     .then(function(response) {
       var data = response.data.contents.quotes;
       data.forEach(function(item) {
-        console.log(item);
         $scope.quote = item
       });
     })

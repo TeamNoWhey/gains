@@ -130,6 +130,7 @@ module.exports = {
         return user;
       })
       .then(function(user) {
+      console.log('signup user:', user);
         console.log('giving user jwt token');
         // create token to send back for auth
         var token = jwt.encode(user[0].username, 'secret');
@@ -166,6 +167,7 @@ module.exports = {
               userPassword = userPw[0].password;
               return password === userPassword; // comparing password entered with password in the db
             })
+
             .then(function(pwMatch) { // do pws match? true or false?
               if (pwMatch) {
                 console.log('signing in, found user, pws match, user is:', user);
@@ -190,6 +192,7 @@ module.exports = {
     // then decode the token, which ends up being the user object
     // check to see if that user exists in the database
     var token = req.headers['x-access-token'];
+    console.log('Checkauth ran');
     if (!token) {
       next(new Error('No token'));
     } else {
@@ -213,26 +216,5 @@ module.exports = {
 
 };
 
-  // checkAuth: function (req, res, next) {
-  //   // checking to see if the user is authenticated
-  //   // grab the token in the header is any
-  //   // then decode the token, which we end up being the user object
-  //   // check to see if that user exists in the database
-  //   var token = req.headers['x-access-token'];
-  //   if (!token) {
-  //     next(new Error('No token'));
-  //   } else {
-  //     var user = jwt.decode(token, 'secret');
-  //     findUser({username: user.username})
-  //       .then(function (foundUser) {
-  //         if (foundUser) {
-  //           res.send(200);
-  //         } else {
-  //           res.send(401);
-  //         }
-  //       })
-  //       .fail(function (error) {
-  //         next(error);
-  //       });
-  //   }
-  // };
+
+};
