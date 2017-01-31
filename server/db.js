@@ -3,5 +3,3 @@ var env         = 'development';
 var knex        = require('knex')(config[env]);
 
 module.exports = knex; // exports db connection
-
-// knex.migrate.latest([config]); 

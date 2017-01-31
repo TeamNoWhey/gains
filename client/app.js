@@ -30,8 +30,3 @@ app.config(function($routeProvider, $locationProvider, $httpProvider)  {
 
 })
 
-
-// app.controller('FitnessAppCtrl', function($scope) {
-
-//   //Empty in case it's needed for something
-// });

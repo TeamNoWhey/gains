@@ -1,23 +1,8 @@
-// var Q = require('q');
 var jwt = require('jwt-simple');
-// var User = require('./userModel.js');
 var knex = require('../db.js');
-
-// // Promisify a few mongoose methods with the `q` promise library
-// var findUser = Q.nbind(User.findOne, User);
-// var createUser = Q.nbind(User.create, User);
 
 module.exports = {
   storeWorkout: function(req, res) {
-    // req.body has the stuff
-    /* req.body has exercises = [
-    {name: , sets: , reps: , targetWeight: , actualWeight: },
-    {name: , sets: , reps: , targetWeight: , actualWeight: }
-    .
-    .
-    .
-    }]
-    */
 
     console.log('inserting workout exercise data into workout history');
     console.log('req.body:', req.body);
@@ -57,31 +42,6 @@ module.exports = {
     } else {
       console.error('no user :(((((((((((');
     }
-
-
-
-    // if (exercises) {
-    //   exercises.forEach((exercise) => {
-    //     // lookup the eid by e-name
-    //     // have a ref to user by uid
-    //     console.log(exercise.name); // correctly logs exercise's name
-    //     var eid = 7;
-    //     knex('exercises')
-    //       .select('eid')
-    //       .where('name', exercise.name) // if the name doesn't match db then eid will not be set properly
-    //       .then(function(exerciseId) {
-    //         eid = exerciseId || 7;
-    //       });
-    //     console.log(eid);
-
-    //     // uid is hard-coded to 1 because without signup and signin, there is no user account to tie the exercise and workout data to
-    //     knex('history')
-    //       .insert({uid: userId, eid: eid, sets: exercise.sets, reps: exercise.reps, weight: exercise.actualWeight})
-    //       .then(function() {
-    //         res.status(200).end('workout exercise data was successfuly stored in workout history!');
-    //       });
-    //   });
-    // }
   },
 
   getWorkoutHistory: function(req, res) {

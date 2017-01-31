@@ -28,14 +28,6 @@ exports.up = function(knex, Promise) {
       table.string('weight'); // if array, stringify before insertion
       table.timestamps();
 
-      /*
-      when setting an array (or a value that could be an array) as the value of a json or jsonb column, you should use JSON.stringify() to convert your value to a string prior to passing it to the query builder, e.g.
-
-      knex.table('users')
-      .where({id: 1})
-      .update({json_data: JSON.stringify(mightBeAnArray)});
-
-      */
     })
   ])
 };
@@ -47,22 +39,3 @@ exports.down = function(knex, Promise) {
     knex.schema.dropTable('users')
   ])
 };
-
-// exports.up = function(knex, Promise) {
-//   return Promise.all([
-//     knex.schema.createTable('users', function (table) {
-//       table.increments(); // `id` int unsigned not null auto_increment primary key // user.increments('id').primary();
-//       table.string('name', 255);
-//       table.string('username', 255).unique();
-//       table.string('email', 255); // input validation should occur before indertion into the db
-//       table.string('password', 25);
-//       table.timestamps();
-//     });  
-//   ])
-// };
-
-// exports.down = function(knex, Promise) {
-//   return Promise.all([
-//     knex.schema.dropTable('users');
-//   ])
-// };

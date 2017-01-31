@@ -1,6 +1,5 @@
-// ToDo
-// Change line 10 to match angular app
-// Get Dependencies from codepen
+// Depending on how you want to import the listofworkouttypes into this file, through query or brute force copy paste use the var
+// at line64
 
 (function () {
   'use strict';
