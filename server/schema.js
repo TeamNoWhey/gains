@@ -42,14 +42,7 @@ db.knex.schema.createTable('history', function (table) { // should each user hav
   table.integer('sets');
   table.integer('reps');
   table.json('weight'); // weight lifted on each set
-  /*
-  when setting an array (or a value that could be an array) as the value of a json or jsonb column, you should use JSON.stringify() to convert your value to a string prior to passing it to the query builder, e.g.
 
-  knex.table('users')
-  .where({id: 1})
-  .update({json_data: JSON.stringify(mightBeAnArray)});
-
-  */
   table.timestamps();
 });  
 

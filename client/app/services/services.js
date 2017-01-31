@@ -10,8 +10,6 @@ angular.module('masa.services', [])
     })
     .then(function(res) {
       console.log('Successfully posted the data server side where it can be stored in the user\'s db:', res.data);
-      // console.log('data that was sent:', exercisesData);
-      // return res;
     }, function(err) {
       console.error(err);
     })
@@ -21,7 +19,6 @@ angular.module('masa.services', [])
     return $http({
       method: 'GET', // changed from GET becaus
       url: '/workoutHistory' // /${user}`
-      // params: {user: user}
     })
     .then(function(res) {
       console.log('Successfully retrieved user\'s workout history from the db:', res.data);

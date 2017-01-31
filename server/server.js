@@ -1,12 +1,5 @@
 var express = require('express');
 
-// Decide if these modules are necessary
-// var path = require('path');
-// var passport = require('passport');
-// var bodyParser = require('body-parser');
-// var morgan = require('morgan');
-
-
 var app = express(); // Creates an Express application. The express() function is a top-level function exported by the express module.
 
 // configure our server with all the middleware and routing
