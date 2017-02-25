@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html ng-app='FitnessApp'>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Make America Swole Again</title>
+  <title>Gains</title>
 
   <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="styles/style.css" rel="stylesheet" type="text/css">
@@ -14,70 +15,74 @@
 
 </head>
 
-<body  ng-style="{'background-image':'url(https://theysaidso.com/img/bgs/man_on_the_mountain.jpg)', 'background-repeat': 'no-repeat', 'background-size': 'cover'}">
+<body ng-style="{'background-image':'url(https://theysaidso.com/img/bgs/man_on_the_mountain.jpg)', 'background-repeat': 'no-repeat', 'background-size': 'cover'}">
 
- <!-- Navigation Bar -->
-<nav class="navbar navbar-default navbar-fixed-top" id="bottombar">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-default navbar-fixed-top" id="bottombar">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-align-justify"></span> <span class="caret"></span></a>
+
+
+            <ul class="dropdown-menu">
+              <li><a href="/home">Home</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/planworkout">Plan A Workout</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="/history">View Workout History</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">View Personal Stats</a></li>
+            </ul>
+          </li>
+          <a class="navbar-brand" href="/">
+            <span class="brandchar">G</span>
+            <span class="brandchar">A</span>
+            <span class="brandchar">I</span>
+            <span class="brandchar">N</span>
+            <span class="brandchar">S</span>
+
+          </a>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/signin" class="signinlink">Sign In</a></li>
+          <!-- ng-if to hide if signed in = true -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Name & Photo <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">My Profile</a></li>
+              <li><a href="#">Settings</a></li>
+              <li role="separator" class="divider"></li>
+              <li ng-controller='HomeCtrl' ng-click="signout()"><a href="#">Sign Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-align-justify"></span>   <span class="caret"></span></a>
+    <!-- /.container-fluid -->
+  </nav>
 
 
-          <ul class="dropdown-menu">
-            <li><a href="/home">Home</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/planworkout">Plan A Workout</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/history">View Workout History</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">View Personal Stats</a></li>
-          </ul>
-        </li>
-      <a class="navbar-brand" href="/">
-       <span class="brandchar">M</span>ake
-       <span class="brandchar">A</span>merica
-       <span class="brandchar">S</span>wole
-       <span class="brandchar">A</span>gain
-
-      </a>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/signin" class="signinlink">Sign In</a></li> <!-- ng-if to hide if signed in = true -->
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Name & Photo <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">My Profile</a></li>
-            <li><a href="#">Settings</a></li>
-            <li role="separator" class="divider"></li>
-            <li ng-controller='HomeCtrl' ng-click="signout()"><a href="#">Sign Out</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
-<!-- Body Content -->
+  <!-- Body Content -->
 
   <!-- Main content and injected views -->
   <div id='main'>
     <div ng-view> </div>
- </div>
+  </div>
 
 
 
